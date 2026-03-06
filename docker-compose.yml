@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  qr_code_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: akhalate/qr-code-generator-app
+    environment:
+      - QR_CODE_DIR=/app/qr_codes
+      - FILL_COLOR=red
+      - BACK_COLOR=white
+    volumes:
+      - ./qr_codes:/app/qr_codes
+    command: ["--url", "https://github.com/Aniket-NJIT"]  # Replace the URL with your own url
